@@ -1,0 +1,2 @@
+class UserExitException(KeyboardInterrupt):
+    pass
