@@ -76,6 +76,12 @@ def main():
         except IndexError as ex:
             print(ex)
         except KeyboardInterrupt:
+
+
+
+
+
+
             print('Shutting down.')
             quit()
     print('You have completed the game in {} steps.'.format(steps))

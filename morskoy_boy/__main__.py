@@ -50,7 +50,3 @@ def main():
         except KeyboardInterrupt:
             print('Shutting down, bye!')
             break
-
-
-if __name__ == '__main__':
-    main()

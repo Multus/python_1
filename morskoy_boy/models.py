@@ -14,7 +14,7 @@ class Ship(object):
         self.length = length
         self.location = None
 class Shot(object):
-    def __init__(self,shooter,location,type):
+    def __init__(self,shooter,location,type, x,y):
         self.shooter = User.name
         self.location = [x,y]
         self.type = type
