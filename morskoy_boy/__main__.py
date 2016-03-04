@@ -1,3 +1,4 @@
+import sys
 from todo.custom_exceptions import UserExitException
 
 
@@ -50,3 +51,5 @@ def main():
         except KeyboardInterrupt:
             print('Shutting down, bye!')
             break
+
+main()

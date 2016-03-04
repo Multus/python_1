@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import sys
 
 input = input if (sys.version_info.major == 3) else raw_input

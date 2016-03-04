@@ -12,10 +12,6 @@ list2 = list(not_a_list)  # show __builtin__
 print(list1 == list2, not_a_list == list1)
 print('list() is iterable: ', isinstance(list1, collections.Iterable))
 ​
-# list operations:
-​
-# add:
-# Note the difference between .append and += for tuples
 ​
 list1.append(3)
 print('append() returns None: ', list1.append(4))

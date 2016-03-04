@@ -1,3 +1,12 @@
+from exceptions import UserExitException
+from utils import get_input_function
+from models.py import Class User
+from models.py import Class Shot
+from models.py import Class Ship
+from models.py import Class Field
+
+
+from models.py
 class BaseCommand(object):
     def __init__(self, command):
         self._command = command
