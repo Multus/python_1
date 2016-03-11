@@ -1,12 +1,10 @@
 from exceptions import UserExitException
 from utils import get_input_function
-from models.py import Class User
-from models.py import Class Shot
-from models.py import Class Ship
-from models.py import Class Field
+from models import User
+from models import Shot
+from models import Ship
+from models import Field
 
-
-from models.py
 class BaseCommand(object):
     def __init__(self, command):
         self._command = command
@@ -30,7 +28,7 @@ class ExitCommand(BaseCommand):
     def perform(self, objects, *args, **kwargs):
         raise UserExitException('See you next time!')
 
-class NewUserCommand(BaseCommand)
+class NewUserCommand(BaseCommand):
     @staticmethod
     def label():
         return 'new user'
@@ -38,18 +36,18 @@ class NewUserCommand(BaseCommand)
     @staticmethod
     def _load_user_classes():
 
-    def perform(self, objects, *args, **kwargs):
-        classes = self._load_user_classes()
+         def perform(self, objects, *args, **kwargs):
+             classes = self._load_user_classes()
 
-        print('Select UserName:')
-        for index, name in enumerate(classes.keys()):
-            print('{}'.format(name))
+             print('Select UserName:')
+             for index, name in enumerate(classes.keys()):
+                 print('{}'.format(name))
 
-        input_function = get_input_function()
-        selection = None
-        return new_user
+             input_function = get_input_function()
+             selection = None
+             return new_user
 
-class NewFieldCommand(BaseCommand)
+class NewFieldCommand(BaseCommand):
     @staticmethod
     def label():
         return 'new field'
@@ -57,20 +55,21 @@ class NewFieldCommand(BaseCommand)
     @staticmethod
     def _load_field_classes():
 
-    def perform(self, objects, *args, **kwargs):
-        classes = self._load_field_classes()
+        def perform(self, objects, *args, **kwargs):
+            classes = self._load_field_classes()
 
-        print('Select length:')
-        for index, name in enumerate(classes.keys()):
-            print('{}'.format(lengt))
-        print('Select high:')
-        for index, name in enumerate(classes.keys()):
-            print('{}'.format(high))
+            print('Select length:')
+            for index, name in enumerate(classes.keys()):
+                print('{}'.format(lengt))
+            print('Select high:')
+            for index, name in enumerate(classes.keys()):
+                print('{}'.format(high))
 
-        input_function = get_input_function()
-        selection = None
-        return new_field
-class NewShotCommand(BaseCommand)
+            input_function = get_input_function()
+            selection = None
+            return new_field
+
+class NewShotCommand(BaseCommand):
     def perform(self, objects, *args, **kwargs):
         classes = self._load_shot_classes()
 
@@ -85,30 +84,30 @@ class NewShotCommand(BaseCommand)
         selection = None
         return new_shot
 
-class NewShipCommand(BaseCommand)
+class NewShipCommand(BaseCommand):
 
     @staticmethod
-    def _load_field_classes():
+    def _load_ship_classes():
 
-    def perform(self, objects, *args, **kwargs):
-        classes = self._load_field_classes()
+        def perform(self, objects, *args, **kwargs):
+            classes = self._load_ship_classes()
 
-        print('Select x1:')
-        for index, name in enumerate(classes.keys()):
-            print('{}'.format(x1))
-        print('Select y1:')
-        for index, name in enumerate(classes.keys()):
-            print('{}'.format(y1))
-        print('Select x2:')
-        for index, name in enumerate(classes.keys()):
-            print('{}'.format(x2))
-        print('Select y2:')
-        for index, name in enumerate(classes.keys()):
-            print('{}'.format(y2))
+            print('Select x1:')
+            for index, name in enumerate(classes.keys()):
+                print('{}'.format(x1))
+            print('Select y1:')
+            for index, name in enumerate(classes.keys()):
+                print('{}'.format(y1))
+            print('Select x2:')
+            for index, name in enumerate(classes.keys()):
+                print('{}'.format(x2))
+            print('Select y2:')
+            for index, name in enumerate(classes.keys()):
+                print('{}'.format(y2))
 
-        input_function = get_input_function()
-        selection = None
-        return new_field
+            input_function = get_input_function()
+            selection = None
+            return new_ship
 
 
 

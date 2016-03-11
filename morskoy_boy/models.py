@@ -21,7 +21,7 @@ class Ship(object):
         self.x1 = y2
         self.pice = '#'
         self.location = None
-        if Shot.location == self.location
+        if Shot.location == self.location:
             self.fragment = '*'
 class Shot(object):
     def __init__(self,shooter,location,type, x,y, view):
@@ -31,8 +31,10 @@ class Shot(object):
         self.view = view
         if type == False:
             self.view = 'O'
-            else
+            Field.pice = 'O'
+        else:
             self.view = '*'
+            Field.pice = '*'
 
 
 
