@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <form method="POST" action="{{ action }}">
+        {{form.hidden_tag()}}
+        <dl>
+            {% for field in form %}
+                {% if field.type != 'CSRFTokenField' %}
+                    {{field.label}}: {{field}}<br/>
+                {% endif %}
+            {% endfor %}
+        </dl>
+
+        <input type="submit" value="{{ 'Submit' }}" class="btn">
+    </form>
+
+{% endblock %}

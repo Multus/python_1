@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%}{%endblock%}</title>
+    <style>
+        body{font-family:arial;}
+        .posts{margin-top:30px;}
+        .post{border-top:1px #000 dashed; padding-top:10px; margin-bottom:20px; width:100%; clear:both;}
+        .post h1{font-size:18px;}
+        .qr{float:left;}
+        .user{background:#000000; color:#ffffff; font-weight:bolder; padding:10px 10px;}
+        .menu{margin-top:20px;}
+        a{color:#0000FF; text-decoration:none;}
+        a:hover{border-bottom:1px #000000 dashed;}
+        .menu a{margin-left:20px;}
+    </style>
+</head>
+<body>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="msg">
+            <ul class=flashes>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            </div>
+        {% endif %}
+{% endwith %}
+{% if current_user.is_authenticated %}
+<div class="user">{{_('Hi')}}, {{current_user.username}}!</div>
+{% endif %}
+<div class="menu">
+    <a href="{{url_for('home.main')}}">{{_('All posts')}}</a>
+    {% if current_user.is_authenticated %}
+        <a href="{{url_for('user.myposts')}}">{{_('My Posts')}}</a>
+        <a href="{{url_for('user.newpost')}}">{{_('Write Post')}}</a>
+        <a href="{{url_for('user.user_exit')}}">{{_('Quit')}}</a>
+    {% else %}
+        <a href="{{url_for('auth.newuser')}}">{{_('New User')}}</a>
+        <a href="{{url_for('auth.login')}}">{{_('Log IN')}}</a>
+    {% endif %}
+    <a href="{{url_for('home.locale_change')}}">{{_('Switch language')}}</a>
+</div>
+
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

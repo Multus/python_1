@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{_('Posts list')}} {% endblock %}
+
+{% block content %}
+
+{% if username %}
+<div>
+    <h1>{{_('Hi')}}, {{current_user.username}}!</h1>
+    <p>{{_('Here is a list of the posts you published')}}</p>
+</div>
+{% endif %}
+
+
+    {% if posts %}
+        <div class="posts">
+        {% for post in posts %}
+            <div class="post">
+                {% if post.qr_path %}
+           <div class="qr">
+               <img src="{{url_for('static', filename=post.qr_path)}}" />
+           </div>
+            {% endif %}
+               <div>
+                   <b>{{_('Author')}}: {{post.user.username}}</b> - {{post.date_created}}
+               </div>
+               <div>
+                   <h1>{{post.title}}</h1>
+                   <div>{{post.content}}</div>
+               </div>
+                {% if current_user and current_user.id == post.user.id %}
+                        <form action="{{url_for('user.StatusPost')}}" method="post">
+                            <input type="hidden" name="post_id" value="{{post.id}}" />
+                            <input type="hidden" name="method" value="{% if post.is_visible %}hide{% else %}show{% endif %}" />
+                            <input type="submit" value="{% if post.is_visible %}{{_('Hide')}}{% else %}{{_('Show')}}{% endif %}">
+                        </form>
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <h1>{{_('There is no posts yet')}}</h1>
+    {% endif %}
+
+
+{% endblock %}
